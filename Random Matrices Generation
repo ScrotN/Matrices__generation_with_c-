@@ -1,0 +1,39 @@
+#include<iostream>
+#include<random>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int row;
+	cout << "What's the Matrix?\nColomb: ";
+	cin >> row;
+	int row2 = row + 1;
+	cout << "\nRow: ";
+	int colomb;
+	cin >> colomb;
+	cout << "\nHow many generation?\nInput: ";
+	int multiples;
+	cin >> multiples;
+	for (int i = 0; i < multiples; i++)
+	{
+		random_device c1;
+		uniform_int_distribution<int> c2(1, 50);
+		cout << "\n" << row << "X" << colomb << " matrix" << "$_" << i+1 << "$:\n\\being{center}\n";
+		cout << "$\\begin{bmatrix}\n";
+		for (int b = 0; b < colomb; b++)
+		{
+			for (int a = 3; a <= row2; a++)
+			{
+				int c12 = c2(c1);
+				cout << c12 << " & ";
+				if (a >= row2)
+				{
+					cout << c12 << "\\\\\n";
+				}
+			}
+		}
+		cout << "\\end{bmatrix}$\n\\end{center}\n";
+	}
+
+}
