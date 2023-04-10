@@ -3,37 +3,37 @@
 #include<cmath>
 using namespace std;
 
+
 int main()
 {
-	int row;
-	cout << "What's the Matrix?\nColomb: ";
+	int column, row, repeat;
+	cout << "Row input: ";
 	cin >> row;
-	int row2 = row + 1;
-	cout << "\nRow: ";
-	int colomb;
-	cin >> colomb;
-	cout << "\nHow many generation?\nInput: ";
-	int multiples;
-	cin >> multiples;
-	for (int i = 0; i < multiples; i++)
+	cout << "Column input: ";
+	cin >> column;
+	cout << "Repeated generation: ";
+	cin >> repeat;
+	cout << "\n=============\n";
+	for (int v = 0; v < repeat; v++)
 	{
-		random_device c1;
-		uniform_int_distribution<int> c2(1, 50);
-		cout << "\n" << row << "X" << colomb << " matrix" << "$_" << i+1 << "$:\n\\being{center}\n";
-		cout << "$\\begin{bmatrix}\n";
-		for (int b = 0; b < colomb; b++)
+		cout << "\\begin{bmatrix}\n";
+		for (int i = 1; i <= row; i++)
 		{
-			for (int a = 3; a <= row2; a++)
+			for (int a = 2; a <= column; a++)
 			{
-				int c12 = c2(c1);
-				cout << c12 << " & ";
-				if (a >= row2)
+				random_device c1;
+				uniform_int_distribution<int> c2(0, 20);
+				int c3 = c2(c1);
+				cout << c3 << " \& ";
+				if (a >= column)
 				{
-					cout << c12 << "\\\\\n";
+					cout << c3;
 				}
 			}
+			cout << "\\\\" << endl;
 		}
-		cout << "\\end{bmatrix}$\n\\end{center}\n";
+		cout << "\\end{bmatrix}";
+		cout << "\n\n";
 	}
 
 }
